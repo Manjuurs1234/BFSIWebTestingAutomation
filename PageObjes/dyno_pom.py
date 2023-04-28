@@ -12,7 +12,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 class Loginpage:
 # locators
 
-    chrome = "E:\Company Software\Chrome  Webdriver - 110 version\chromedriver.exe"
+    chrome = '../Driver/chromedriver'
     URL = "https://d.dynoapp.in/#/Dyno/login"
     email = "manjunath.s@tibilsolutions.com"
     next = ".next-btn.md.button.button-solid.ion-activatable.ion-focusable.hydrated"
@@ -23,6 +23,19 @@ class Loginpage:
     def __init__(self,driver):
         self.driver = driver
 
+
+    def get_driver(self):
+        options = webdriver.ChromeOptions()
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-gpu')
+        self.driver = webdriver.Chrome(options=options, executable_path='../Driver/chromedriver')
+        self.driver.set_window_size(3860, 2160)
+        self.driver.maximize_window()
+        self.driver.implicitly_wait(30)
+        print('window size :', self.driver.get_window_size())
+        print("Current session is {}".format(self.driver.session_id))
+
+        return self.driver
     # actions methods
 
     # mail id

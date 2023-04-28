@@ -12,7 +12,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 class Loginpage:
 # locators
 
-    chrome = "E:\Company Software\Chrome  Webdriver - 110 version\chromedriver.exe"
+    chrome = "chrome = '../Driver/chromedriver'"
     URL = "https://d.dynoapp.in/#/Dyno/login"
     email = "manjunath.s@tibilsolutions.com"
     next = ".next-btn.md.button.button-solid.ion-activatable.ion-focusable.hydrated"

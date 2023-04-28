@@ -13,7 +13,7 @@ class TestLogin:
     def test_Login(self):
         options = webdriver.ChromeOptions()
         options.add_experimental_option("detach", True)
-        serv_obj = Service("E:\Company Software\Chrome  Webdriver - 110 version\chromedriver.exe")
+        serv_obj = Service("/home/manjunath/Projects/chromedriver")
         driver = webdriver.Chrome(options=options, service=serv_obj)
         driver.get("https://d.dynoapp.in/#/login/login")
         driver.maximize_window()
