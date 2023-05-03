@@ -6,7 +6,7 @@ from selenium.webdriver.common.keys import Keys
 def browser():
     from selenium import webdriver
     from selenium.webdriver.chrome.service import Service
-    serv_obj = Service("/home/manjunath/Downloads/chromedriver_linux64")
+    serv_obj = Service("/home/manjunath/Projects/BFSI Web Testing Automation/Driver/chromedriver")
     driver = webdriver.Chrome(service=serv_obj)
     driver.maximize_window()
     yield driver
