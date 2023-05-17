@@ -16,6 +16,7 @@ class Login:
 
     title = "//div[@class='titleStyle']"
     sub_title = "//p[text()='Sales Enabler & Solution Accelerator']"
+    sub_title_not_center = "//img[@class='imageLogo']"
 
     # Google Sign in
     click_google_signin_button = "//ion-button[contains(text(),'Sign In With Google')]"

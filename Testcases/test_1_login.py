@@ -63,6 +63,20 @@ class TestLogin:
         else:
             assert False
     #*******************************************************************************************************************
+    # Dyno icon and Title and subtitle not displayed at center
+    def test_title_subtitle_not_center(self):
+        self.driver.find_element(By.XPATH, Login.sub_title_not_center)
+        time.sleep(2)
+
+    # test case verification
+        verify_tc = self.driver.find_element(By.XPATH, Login.sub_title)
+        print("Dyno icon is displayed:", verify_tc.is_displayed())
+        if verify_tc.is_displayed() == True:
+            assert True
+        else:
+            assert False
+
+    #*******************************************************************************************************************
 
     #  Click on next button Check without mail id
 
@@ -84,7 +98,7 @@ class TestLogin:
         self.driver.find_element(By.XPATH, Login.email_textfield).clear()
     #*******************************************************************************************************************
 
-    # Enter the invalid characters
+    # Enter the spical characters
     def test_invalid_characters(self):
         self.driver.find_element(By.XPATH, Login.email_textfield).send_keys('abc@123[];')
         time.sleep(2)
