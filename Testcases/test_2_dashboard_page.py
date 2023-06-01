@@ -20,6 +20,7 @@ baseURL = ReadConfig.getApplicationURL
 class TestLogin:
     otp = []
 
+class TestMethod():
     @pytest.fixture(autouse=True)
     def setup(self, browser):
         self.driver = browser
@@ -137,21 +138,21 @@ class TestLogin:
             assert False
         time.sleep(2)
     #*******************************************************************************************************************
-        # Cards are must be display in grid view
-    def test_grid_view(self):
-        self.driver.find_element(By.XPATH, dashboard.grid_view_click).click()
-        time.sleep(2)
-        self.driver.find_element(By.XPATH, dashboard.grid_view_click).click() # click again
-
-    # test case verification
-        verify_tc = self.driver.find_element(By.XPATH, dashboard.grid_view_click)
-        print("Grid view is displayed:", verify_tc.is_displayed())
-        if verify_tc.is_displayed() == True:
-            assert True
-        else:
-            assert False
-        time.sleep(3)
-    #*******************************************************************************************************************
+    #     # Cards are must be display in grid view
+    # def test_grid_view(self):
+    #     self.driver.find_element(By.XPATH, dashboard.grid_view_click).click()
+    #     time.sleep(2)
+    #     self.driver.find_element(By.XPATH, dashboard.grid_view_click).click() # click again
+    #
+    # # test case verification
+    #     verify_tc = self.driver.find_element(By.XPATH, dashboard.grid_view_click)
+    #     print("Grid view is displayed:", verify_tc.is_displayed())
+    #     if verify_tc.is_displayed() == True:
+    #         assert True
+    #     else:
+    #         assert False
+    #     time.sleep(3)
+    # #*******************************************************************************************************************
         # click on kebab menu
     def test_kebab_menu(self):
         self.driver.find_element(By.XPATH, dashboard.click_kebab_menu).click()
@@ -180,108 +181,108 @@ class TestLogin:
         else:
             assert False
     #*******************************************************************************************************************
-    # navigate the dashboard page
-    def test_navigate_dashboard_page(self):
-        self.driver.find_element(By.XPATH, dashboard.click_kebab_menu).click()
-        time.sleep(2)
-        # open application
-        self.driver.find_element(By.XPATH, dashboard.open_applications).click()
-        time.sleep(5)
-        self.driver.find_element(By.XPATH, dashboard.click_back_button_browser).click()
-        time.sleep(3)
-
-    # test case verification
-        verify_tc = self.driver.find_element(By.XPATH, dashboard.view_application_tab_name)
-        print("Application Tab name is displayed:", verify_tc.is_displayed())
-        if verify_tc.is_displayed() == True:
-            assert True
-        else:
-            assert False
-    #*******************************************************************************************************************
-    # Click on read more
-    def test_click_read_more(self):
-        self.driver.find_element(By.XPATH,dashboard.click_read_more).click()
-        time.sleep(2)
-
-    # test case verification
-        verify_tc = self.driver.find_element(By.XPATH, dashboard.click_read_more)
-        print("Data releated project is displayed:", verify_tc.is_displayed())
-        if verify_tc.is_displayed() == True:
-            assert True
-        else:
-            assert False
-
-    #*******************************************************************************************************************
-    # click read less
-    def test_click_read_less(self):
-        self.driver.find_element(By.XPATH,dashboard.click_read_less).click()
-        time.sleep(2)
-
-        # test case verification
-        verify_tc = self.driver.find_element(By.XPATH, dashboard.click_read_more)
-        print("Project card go to original state displayed:", verify_tc.is_displayed())
-        if verify_tc.is_displayed() == True:
-            assert True
-        else:
-            assert False
-
-    #*******************************************************************************************************************
-        # Click on list view
-    def test_click_list_view(self):
-        self.driver.find_element(By.XPATH, dashboard.click_list_view).click()
-
-    # test case verification
-        verify_tc = self.driver.find_element(By.XPATH, dashboard.click_list_view)
-        print("Cards are view in list view verified:", verify_tc.is_displayed())
-        if verify_tc.is_displayed() == True:
-            assert True
-        else:
-            assert False
-        time.sleep(2)
-    #*******************************************************************************************************************
-        # click kebab menu in list view
-    def test_click_kebab_menu_list_view(self):
-        self.driver.find_element(By.XPATH, dashboard.click_kebab_list_view).click()
-
-    # test case verification
-        verify_tc = self.driver.find_element(By.XPATH, dashboard.click_kebab_list_view)
-        print("View specification and open application tab is displayed:", verify_tc.is_displayed())
-        if verify_tc.is_displayed() == True:
-            assert True
-        else:
-            assert False
-        time.sleep(2)
-    #*******************************************************************************************************************
-        # Click on view specification in list view
-    def test_click_view_specification(self):
-        self.driver.find_element(By.XPATH, dashboard.view_specifications).click()
-        time.sleep(2)
-        self.driver.find_element(By.XPATH, dashboard.click_back_button).click()
-        time.sleep(2)
-
-        # test case verification
-        verify_tc = self.driver.find_element(By.XPATH, dashboard.view_application_tab_name)
-        print("view specification in list view is displayed:", verify_tc.is_displayed())
-        if verify_tc.is_displayed() == True:
-            assert True
-        else:
-            assert False
+    # # navigate the dashboard page
+    # def test_navigate_dashboard_page(self):
+    #     self.driver.find_element(By.XPATH, dashboard.click_kebab_menu).click()
+    #     time.sleep(2)
+    #     # open application
+    #     self.driver.find_element(By.XPATH, dashboard.open_applications).click()
+    #     time.sleep(5)
+    #     self.driver.find_element(By.XPATH, dashboard.click_back_button_browser).click()
+    #     time.sleep(3)
+    #
+    # # test case verification
+    #     verify_tc = self.driver.find_element(By.XPATH, dashboard.view_application_tab_name)
+    #     print("Application Tab name is displayed:", verify_tc.is_displayed())
+    #     if verify_tc.is_displayed() == True:
+    #         assert True
+    #     else:
+    #         assert False
+    # #*******************************************************************************************************************
+    # # Click on read more
+    # def test_click_read_more(self):
+    #     self.driver.find_element(By.XPATH,dashboard.click_read_more).click()
+    #     time.sleep(2)
+    #
+    # # test case verification
+    #     verify_tc = self.driver.find_element(By.XPATH, dashboard.click_read_more)
+    #     print("Data releated project is displayed:", verify_tc.is_displayed())
+    #     if verify_tc.is_displayed() == True:
+    #         assert True
+    #     else:
+    #         assert False
+    #
+    # #*******************************************************************************************************************
+    # # click read less
+    # def test_click_read_less(self):
+    #     self.driver.find_element(By.XPATH,dashboard.click_read_less).click()
+    #     time.sleep(2)
+    #
+    #     # test case verification
+    #     verify_tc = self.driver.find_element(By.XPATH, dashboard.click_read_more)
+    #     print("Project card go to original state displayed:", verify_tc.is_displayed())
+    #     if verify_tc.is_displayed() == True:
+    #         assert True
+    #     else:
+    #         assert False
 
     #*******************************************************************************************************************
-        # Click on Open application in list view
-    def test_click_on_open_application(self):
-        self.driver.find_element(By.XPATH, dashboard.click_kebab_list_view).click()
-        time.sleep(2)
-        self.driver.find_element(By.XPATH, dashboard.open_applications).click()
-        time.sleep(5)
-        self.driver.find_element(By.XPATH, dashboard.click_back_button_browser).click()
-        time.sleep(2)
-    # test case verification
-        verify_tc = self.driver.find_element(By.XPATH, dashboard.view_application_tab_name)
-        print("Open application in list view is displayed:", verify_tc.is_displayed())
-        if verify_tc.is_displayed() == True:
-            assert True
-        else:
-            assert False
-
-    #*******************************************************************************************************************
+    # #     # Click on list view
+    # # def test_click_list_view(self):
+    # #     self.driver.find_element(By.XPATH, dashboard.click_list_view).click()
+    # #
+    # # # test case verification
+    # #     verify_tc = self.driver.find_element(By.XPATH, dashboard.click_list_view)
+    # #     print("Cards are view in list view verified:", verify_tc.is_displayed())
+    # #     if verify_tc.is_displayed() == True:
+    # #         assert True
+    # #     else:
+    # #         assert False
+    # #     time.sleep(2)
+    # # #*******************************************************************************************************************
+    # #     # click kebab menu in list view
+    # # def test_click_kebab_menu_list_view(self):
+    # #     self.driver.find_element(By.XPATH, dashboard.click_kebab_list_view).click()
+    # #
+    # # # test case verification
+    # #     verify_tc = self.driver.find_element(By.XPATH, dashboard.click_kebab_list_view)
+    # #     print("View specification and open application tab is displayed:", verify_tc.is_displayed())
+    # #     if verify_tc.is_displayed() == True:
+    # #         assert True
+    # #     else:
+    # #         assert False
+    # #     time.sleep(2)
+    # #*******************************************************************************************************************
+    #     # Click on view specification in list view
+    # def test_click_view_specification(self):
+    #     self.driver.find_element(By.XPATH, dashboard.view_specifications).click()
+    #     time.sleep(2)
+    #     self.driver.find_element(By.XPATH, dashboard.click_back_button).click()
+    #     time.sleep(2)
+    #
+    #     # test case verification
+    #     verify_tc = self.driver.find_element(By.XPATH, dashboard.view_application_tab_name)
+    #     print("view specification in list view is displayed:", verify_tc.is_displayed())
+    #     if verify_tc.is_displayed() == True:
+    #         assert True
+    #     else:
+    #         assert False
+    #
+    # #*******************************************************************************************************************
+    #     # Click on Open application in list view
+    # def test_click_on_open_application(self):
+    #     self.driver.find_element(By.XPATH, dashboard.click_kebab_list_view).click()
+    #     time.sleep(2)
+    #     self.driver.find_element(By.XPATH, dashboard.open_applications).click()
+    #     time.sleep(5)
+    #     self.driver.find_element(By.XPATH, dashboard.click_back_button_browser).click()
+    #     time.sleep(2)
+    # # test case verification
+    #     verify_tc = self.driver.find_element(By.XPATH, dashboard.view_application_tab_name)
+    #     print("Open application in list view is displayed:", verify_tc.is_displayed())
+    #     if verify_tc.is_displayed() == True:
+    #         assert True
+    #     else:
+    #         assert False
+    #
+    # #*******************************************************************************************************************

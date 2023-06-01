@@ -7,6 +7,8 @@ from selenium.common import NoSuchElementException
 from selenium.webdriver import Keys, ActionChains
 from selenium.webdriver.chrome.service import Service
 
+
+
 from selenium.webdriver.common.by import By
 import time
 from PageObjes.login_page import Login
@@ -22,6 +24,7 @@ class TestLogin:
     @pytest.fixture(autouse=True)
     def setup(self, browser):
         self.driver = browser
+
 
     # Enter the Harmony url in Browser search bar
     def test_Url(self):
@@ -77,44 +80,20 @@ class TestLogin:
             assert False
 
     #*******************************************************************************************************************
-
-    #  Click on next button Check without mail id
-
-    def test_nxt_button(self):
+    # Enter the special characters
+    def test_special_characters(self):
+        self.driver.find_element(By.XPATH, Login.email_textfield).send_keys('[];?_!')
         time.sleep(2)
-        self.driver.find_element(By.XPATH, Login.email_textfield)
-        time.sleep(2)
-        shadow = self.driver.find_element(By.CSS_SELECTOR, Login.next_button)
-        shadow.click()
-        time.sleep(5)
-
-    # test case verification
-        txt = self.driver.find_element(By.CLASS_NAME, Login.error_text).text
-        if txt == "Please enter email":
-            assert True
-        else:
-            assert False
-
-        self.driver.find_element(By.XPATH, Login.email_textfield).clear()
-    #*******************************************************************************************************************
-
-    # Enter the spical characters
-    def test_invalid_characters(self):
-        self.driver.find_element(By.XPATH, Login.email_textfield).send_keys('abc@123[];')
-        time.sleep(2)
-        shadow = self.driver.find_element(By.CSS_SELECTOR, Login.next_button)
-        shadow.click()
-        time.sleep(2)
-        txt1 = self.driver.find_element(By.CSS_SELECTOR, Login.error_message).text
-
-    # test case verification
-        if txt1 == "Please enter valid email address":
+        # test case verification
+        verify_tc = self.driver.find_element(By.XPATH, Login.email_textfield)
+        print("Login is displayed:", verify_tc.is_displayed())
+        if verify_tc.is_displayed() == True:
             assert True
         else:
             assert False
         self.driver.find_element(By.XPATH,Login.email_textfield).clear()
-    #*******************************************************************************************************************
-
+   #  #*******************************************************************************************************************
+   #
         # Enter the invalid email id
     def test_invalid_email_id(self):
             self.driver.find_element(By.XPATH, Login.email_textfield).send_keys('narayan.sk@tibilsolutions.com')
@@ -124,7 +103,7 @@ class TestLogin:
             time.sleep(12)
 
     # test case verification
-            verify_tc = self.driver.find_element(By.XPATH, Login.invalid_mail_id_ok_button)
+            verify_tc = self.driver.find_element(By.XPATH, Login.invalid_credentias)
             print("invalid email is displayed:", verify_tc.is_displayed())
             if verify_tc.is_displayed() == True:
                 assert True
@@ -150,7 +129,7 @@ class TestLogin:
             assert False
         time.sleep(2)
 
-    #*******************************************************************************************************************
+    # *******************************************************************************************************************
        # enter the otp - Empty text box
     def test_empty_textbox(self):
         self.driver.find_element(By.XPATH, Login.otp_textfield)

@@ -6,6 +6,8 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
 
+
+
 from selenium.webdriver.support.wait import WebDriverWait
 
 
@@ -19,7 +21,7 @@ class Login:
     sub_title_not_center = "//img[@class='imageLogo']"
 
     # Google Sign in
-    click_google_signin_button = "//ion-button[contains(text(),'Sign In With Google')]"
+    click_google_signin_button = "//ion-button[contains(text(),'Sign in with Google')]"
     google_email_textfield = '//*[@id="identifierId"]'
     google_email_next_button = '//*[@id="identifierNext"]/div/button/span' # email next button
     google_password_textfield = '//*[@id="password"]/div[1]/div/div[1]/input'
@@ -33,6 +35,7 @@ class Login:
     error_text = "error-message"
     wrong_otp_ok_button = "//span[@class='alert-button-inner sc-ion-alert-md'] = ok button"
     invalid_mail_id_ok_button = "//span[@class='alert-button-inner sc-ion-alert-md']"
+    invalid_credentias = "//div[contains(text(),'Email is not registered')]"
 
     # logout
     img = ".avatar"
