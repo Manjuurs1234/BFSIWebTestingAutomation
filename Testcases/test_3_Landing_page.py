@@ -1207,6 +1207,149 @@ class TestLogin:
         else:
             assert False
     # ****************************************************************************************************************
+        # Click on Tags Check whether Tags are displaying or not
+    def test_check_Tags_displaying_or_not(self):
+        self.driver.find_element(By.XPATH, landing.dots_menu).click()
+        time.sleep(2)
+        self.driver.find_element(By.XPATH, landing.click_tags).click()
+        time.sleep(2)
+
+        verify_tc = self.driver.find_element(By.XPATH, landing.tags_name_title)
+        print("Tags releated  must be display : ", verify_tc.is_displayed())
+        if verify_tc.is_displayed() == True:
+            assert True
+        else:
+            assert False
+    #****************************************************************************************************************
+    # Click on Cancel Check whether close button working or not
+    def test_check_Tags_close_button_working_or_not(self):
+        self.driver.find_element(By.CSS_SELECTOR, landing.close_option).click()
+        time.sleep(2)
+
+        verify_tc = self.driver.find_element(By.XPATH, landing.dots_menu)
+        print("Tags tab must be cancel.: ", verify_tc.is_displayed())
+        if verify_tc.is_displayed() == True:
+            assert True
+        else:
+            assert False
+    # ****************************************************************************************************************
+        # Click on pin in Check whether it is working or not
+    def test_check_on_tags_tab_pin_working_or_not(self):
+            self.driver.find_element(By.XPATH, landing.dots_menu).click()
+            time.sleep(2)
+            self.driver.find_element(By.XPATH, landing.click_tags).click()
+            time.sleep(2)
+            self.driver.find_element(By.XPATH, landing.click_pin).click()
+            time.sleep(2)
+
+            verify_tc = self.driver.find_element(By.XPATH, landing.tags_name_title)
+            print("Tags tab must be comes at left of the screen", verify_tc.is_displayed())
+            if verify_tc.is_displayed() == True:
+                assert True
+            else:
+                assert False
+    #****************************************************************************************************************
+    # Click on linked item Check whether Linked Itams are displaying or not
+    def test_check_Linked_item_displayed_or_not(self):
+        self.driver.find_element(By.XPATH, landing.dots_menu).click()
+        time.sleep(2)
+        self.driver.find_element(By.XPATH, landing.click_linked_items).click()
+        time.sleep(2)
+
+        verify_tc = self.driver.find_element(By.XPATH, landing.linked_items_tag_names)
+        print("Linked item releated  must be display : ", verify_tc.is_displayed())
+        if verify_tc.is_displayed() == True:
+            assert True
+        else:
+            assert False
+        # ****************************************************************************************************************
+        # Click on Cancel Check whether close button working or not
+    def test_check_linked_item_close_button_working_or_not(self):
+        self.driver.find_element(By.XPATH, landing.linked_items_close).click()
+        time.sleep(2)
+        verify_tc = self.driver.find_element(By.XPATH, landing.dots_menu)
+        print("Linked Items tab must be cancel.: ", verify_tc.is_displayed())
+        if verify_tc.is_displayed() == True:
+            assert True
+        else:
+            assert False
+    # ****************************************************************************************************************
+        # Click on pin in Check whether it is working or not
+    def test_check_on_Linked_Item_pin_working_or_not(self):
+        self.driver.find_element(By.XPATH, landing.dots_menu).click()
+        time.sleep(2)
+        self.driver.find_element(By.XPATH, landing.click_linked_items).click()
+        time.sleep(2)
+        self.driver.find_element(By.XPATH, landing.click_pin).click()
+        time.sleep(2)
+
+        verify_tc = self.driver.find_element(By.XPATH, landing.linked_items_tag_names)
+        print("Linked Item tab must be comes at left of the screen", verify_tc.is_displayed())
+        if verify_tc.is_displayed() == True:
+            assert True
+        else:
+            assert False
+    # ****************************************************************************************************************
+    # Click on Check whether folder are displaying or not
+    def test_folder_displayed_or_not(self):
+            self.driver.find_element(By.XPATH, landing.dots_menu).click()
+            time.sleep(2)
+            self.driver.find_element(By.XPATH, landing.click_folder_part).click()
+            time.sleep(2)
+            self.driver.find_element(By.XPATH, landing.linked_items_close).click()
+            time.sleep(2)
+
+            verify_tc = self.driver.find_element(By.XPATH, landing.linked_items_tag_names)
+            print("Folder releated  must be display : ", verify_tc.is_displayed())
+            if verify_tc.is_displayed() == True:
+                assert True
+            else:
+                assert False
+    # ****************************************************************************************************************
+    # Click on Kebab menu Check whether it is  working or not
+    def test_kubeb_menu_working_or_not(self):
+        self.driver.find_element(By.XPATH, landing.edit_pancel_button).click()
+        time.sleep(2)
+        self.driver.find_element(By.XPATH, landing.dots_menu).click()
+        time.sleep(2)
+        verify_tc = self.driver.find_element(By.XPATH, landing.dots_menu_options)
+        print("Upload Documents,Add People,Add Tag,Link items, Change Folder must be display: ", verify_tc.is_displayed())
+        if verify_tc.is_displayed() == True:
+            assert True
+        else:
+            assert False
+    # ****************************************************************************************************************
+    # Click on Upload Documents Check whether upload documents tab are displaying or not
+    def test_upload_documents_tab_displaying_or_not(self):
+        self.driver.find_element(By.XPATH, landing.click_documents).click()
+        time.sleep(2)
+
+        verify_tc = self.driver.find_element(By.XPATH, landing.documents_name_title)
+        print("Upload Documents tab must be display: ",verify_tc.is_displayed())
+        if verify_tc.is_displayed() == True:
+            assert True
+        else:
+            assert False
+    # ****************************************************************************************************************
+    # Check whether Title textfield is accepting the text or not
+    def test_upload_documents_title_text_field_accepting_the_text_or_not(self):
+        self.driver.find_element(By.XPATH, landing.upload_doc_text).click()
+        time.sleep(2)
+        self.driver.find_element(By.XPATH, landing.upload_doc_text).send_keys("demo_test")
+        time.sleep(2)
+
+        verify_tc = self.driver.find_element(By.XPATH, landing.upload_doc_text)
+        print("Upload Textfield must be accept the text ", verify_tc.is_displayed())
+        if verify_tc.is_displayed() == True:
+            assert True
+        else:
+            assert False
+    # ****************************************************************************************************************
+    # Click on Upload Check whether it is working or not
+    def test_click_upload_working_or_not(self):
+        self.driver.find_element(By.XPATH, landing.file_path).send_keys(
+            "/home/manjunath/Pictures/Placeholder_Person.jpg")
+        time.sleep(5)
 
 
 
