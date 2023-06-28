@@ -80,6 +80,20 @@ class TestLogin:
             assert False
 
     #*******************************************************************************************************************
+        # Enter the special characters
+    def test_invalid_characters(self):
+            self.driver.find_element(By.XPATH, Login.email_textfield).send_keys('ertfyt')
+            time.sleep(2)
+            # test case verification
+            verify_tc = self.driver.find_element(By.XPATH, Login.email_textfield)
+            print("The next button should be hidden and Invalid credentials message must be displayed:", verify_tc.is_displayed())
+            if verify_tc.is_displayed() == True:
+                assert True
+            else:
+                assert False
+            self.driver.find_element(By.XPATH, Login.email_textfield).clear()
+
+    # #*******************************************************************************************************************
     # Enter the special characters
     def test_special_characters(self):
         self.driver.find_element(By.XPATH, Login.email_textfield).send_keys('[];?_!')
@@ -93,7 +107,6 @@ class TestLogin:
             assert False
         self.driver.find_element(By.XPATH,Login.email_textfield).clear()
    #  #*******************************************************************************************************************
-   #
         # Enter the invalid email id
     def test_invalid_email_id(self):
             self.driver.find_element(By.XPATH, Login.email_textfield).send_keys('narayan.sk@tibilsolutions.com')
@@ -109,11 +122,9 @@ class TestLogin:
                 assert True
             else:
                 assert False
-
             self.driver.find_element(By.XPATH, Login.email_textfield).clear()
     #*******************************************************************************************************************
-
-        # Enter the Valid email id
+    # Enter the Valid email id
     def test_validemail_id(self):
         self.driver.find_element(By.XPATH, Login.email_textfield).send_keys('manjunath.s@tibilsolutions.com')
         time.sleep(2)

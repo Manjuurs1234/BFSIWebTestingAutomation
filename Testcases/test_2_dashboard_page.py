@@ -26,7 +26,6 @@ class TestMethod():
     @pytest.fixture(autouse=True)
     def setup(self, browser):
         self.driver = browser
-
     # Enter the Harmony url in Browser search bar
     def test_Url(self):
         self.driver.get(Login.URL)
@@ -302,7 +301,7 @@ class TestMethod():
         time.sleep(2)
         self.driver.find_element(By.XPATH, dashboard.product_name_text_field).click()
         time.sleep(2)
-        self.driver.find_element(By.XPATH, dashboard.product_name_text_field).send_keys("Internet Browser")
+        self.driver.find_element(By.XPATH, dashboard.product_name_text_field).send_keys("10")
         time.sleep(2)
         # test case verification
         verify_tc = self.driver.find_element(By.XPATH, dashboard.product_name_text_field)
@@ -356,7 +355,8 @@ class TestMethod():
     def test_check_product_about_text_field_accept_text_or_not(self):
         self.driver.find_element(By.XPATH, dashboard.product_about_text_field).click()
         time.sleep(2)
-        self.driver.find_element(By.XPATH, dashboard.product_about_text_field).send_keys("Searing the usefull information")
+        self.driver.find_element(By.XPATH, dashboard.product_about_text_field).send_keys("If you don’t already know, then you probably don’t have the clearance. But for the sake of disclosure, "
+                                                                                         "Project Blue Book was the code name for the US Air Force investigations into UFO sightings. But you didn’t hear that from us.")
         time.sleep(2)
         # test case verification
         verify_tc = self.driver.find_element(By.XPATH, dashboard.product_name_text_field)
@@ -515,16 +515,48 @@ class TestMethod():
     # # Check whether add button is working or not
     def test_check_add_button_working_or_not(self):
         self.driver.find_element(By.XPATH, dashboard.product_add_button).click()
-        time.sleep(2)
+        time.sleep(5)
 
         # test case verification
-        verify_tc = self.driver.find_element(By.XPATH, landing.hamburger_menu_right).click()
+        verify_tc = self.driver.find_element(By.XPATH, dashboard.plus_icon)
         print("Products add Sucessfully", verify_tc.is_displayed())
         if verify_tc.is_displayed() == True:
             assert True
         else:
             assert False
-        # ******************************************************************************************************************
+    # ******************************************************************************************************************
+    # Click on Open application Check whether it navigate the application login page or not(new product card)
+    def test_click_on_open_application(self):
+        self.driver.find_element(By.XPATH, dashboard.search_bar).click()
+        time.sleep(2)
+        self.driver.find_element(By.XPATH, dashboard.search_bar).clear()
+        time.sleep(2)
+        self.driver.find_element(By.XPATH, dashboard.search_bar).send_keys('b10')  # search name
+        time.sleep(2)
+        self.driver.find_element(By.XPATH,dashboard.new_product_card_menu).click()
+        time.sleep(2)
+    # test case verification
+        verify_tc = self.driver.find_element(By.XPATH, dashboard.new_product_card_menu)
+        print("Kebab menu is displayed:", verify_tc.is_displayed())
+        if verify_tc.is_displayed() == True:
+            assert True
+        else:
+            assert False
+    #******************************************************************************************************************
+    # Click on  delete Button Check whether it working or not
+    def test_click_on_delete_button_working_on_not(self):
+        self.driver.find_element(By.XPATH,dashboard.new_product_card_delete).click()
+        time.sleep(5)
+        self.driver.find_element(By.XPATH, dashboard.plus_icon)
+        time.sleep(5)
+
+        verify_tc = self.driver.find_element(By.XPATH, dashboard.plus_icon)
+        print("Products Card Deleted. No result found", verify_tc.is_displayed())
+        if verify_tc.is_displayed() == True:
+            assert True
+        else:
+            assert False
+    # ******************************************************************************************************************
 
 
 

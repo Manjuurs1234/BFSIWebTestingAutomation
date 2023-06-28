@@ -47,3 +47,6 @@ class dashboard:
     image_remove_button = "//img[contains(@class,'removeButton')]"
     image_save_button = "//button[contains(text(),'Save')]"
     product_add_button = "//ion-button[contains(text(),'Add')]"
+    dots_click = "(//img[contains(@aria-haspopup,'true')])[2]"
+    new_product_card_menu = "//img[contains(@class,'mat-menu-trigger dot')]"
+    new_product_card_delete = "//div[contains(text(),'Delete')]"

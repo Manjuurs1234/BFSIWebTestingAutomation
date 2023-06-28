@@ -35,7 +35,7 @@ class Login:
     error_text = "error-message"
     wrong_otp_ok_button = "//span[@class='alert-button-inner sc-ion-alert-md'] = ok button"
     invalid_mail_id_ok_button = "//span[@class='alert-button-inner sc-ion-alert-md']"
-    invalid_credentias = "//div[contains(text(),'Email is not registered')]"
+    invalid_credentias = "//div[starts-with(text(),'User is not registered in Dyno Application')]"
 
     # logout
     img = ".avatar"
